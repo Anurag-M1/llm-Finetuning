@@ -1,25 +1,45 @@
-# Local GPT Checkpoint UI
+# LLM Creation From Scratch and Fine-Tuning
 
-A Streamlit web UI to chat with local GPT checkpoints generated from your notebook.
+This project covers the full workflow:
 
-## Project Files
+1. Build core LLM/GPT components from scratch (tokenization, embeddings, attention, transformer blocks, generation).
+2. Fine-tune GPT-2 style models for instruction following.
+3. Run a local Streamlit UI to chat with your saved `.pth` checkpoints.
 
-- `chat_ui.py` - Streamlit app for loading `.pth` checkpoints and generating replies
-- `requirements-ui.txt` - Python dependencies
-- `gpt2-medium355M-sft.pth` - fine-tuned checkpoint (from notebook)
-- `model.pth` - GPT 124M model state dict checkpoint
-- `llm & Finetuning.ipynb` - training and fine-tuning notebook
+## Repository Contents
 
-## Features
+- `llm & Finetuning.ipynb` - main notebook for model building, training, fine-tuning, and checkpoint export
+- `chat_ui.py` - Streamlit app to load checkpoints and generate responses
+- `requirements-ui.txt` - dependencies for UI/inference
+- `the-verdict.txt` - local text corpus used in early training experiments
+- `model.pth` - saved GPT 124M model state dict (from notebook step)
+- `gpt2-medium355M-sft.pth` - fine-tuned GPT-2 medium checkpoint
 
-- Auto-detects model config from checkpoint (`emb_dim`, `layers`, `heads`, `context_length`)
-- Supports local `.pth` selection from the UI
-- Instruction + optional input prompting format
-- Adjustable generation controls (`max_new_tokens`, `temperature`, `top_k`)
+## What Is Implemented
+
+- GPT architecture blocks implemented in PyTorch:
+  - LayerNorm
+  - GELU/FeedForward
+  - Causal Multi-Head Self-Attention
+  - TransformerBlock
+  - GPTModel
+- Autoregressive text generation with:
+  - temperature sampling
+  - top-k filtering
+  - EOS handling
+- Instruction tuning workflow and checkpoint saving
+- Local UI for interactive prompting and response generation
+
+## Streamlit UI Features
+
+- Auto-detect model config from checkpoint weights (`emb_dim`, `n_layers`, `n_heads`, `context_length`)
+- Select local `.pth` checkpoint directly in sidebar
+- Instruction + optional input format
+- Adjustable decoding controls (`max_new_tokens`, `temperature`, `top_k`)
 
 ## Setup
 
-Use Python 3.12 for better PyTorch compatibility on macOS.
+Use Python 3.12 (recommended on macOS):
 
 ```bash
 cd '/Users/anurag/Desktop/llm & Finetuning'
@@ -28,7 +48,7 @@ source .venv/bin/activate
 python -m pip install -r requirements-ui.txt
 ```
 
-## Run
+## Run UI
 
 ```bash
 cd '/Users/anurag/Desktop/llm & Finetuning'
