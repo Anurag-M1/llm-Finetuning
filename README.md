@@ -56,7 +56,8 @@ source .venv/bin/activate
 streamlit run chat_ui.py
 ```
 
-Open: [http://localhost:8501](http://localhost:8501)
+Open:[http://localhost:8501]
+live:(https://llm-finetuning-ykwu.onrender.com)
 
 ## Credits
 
