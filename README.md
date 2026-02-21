@@ -5,6 +5,8 @@ This project covers the full workflow:
 1. Build core LLM/GPT components from scratch (tokenization, embeddings, attention, transformer blocks, generation).
 2. Fine-tune GPT-2 style models for instruction following.
 3. Run a local Streamlit UI to chat with your saved `.pth` checkpoints.
+4. 
+<img width="1297" height="681" alt="llm   Finetuning" src="https://github.com/user-attachments/assets/b74197fb-2d1a-4cac-a4d7-1e20220f6a6c" />
 
 ## Repository Contents
 
