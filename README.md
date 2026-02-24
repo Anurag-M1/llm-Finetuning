@@ -61,20 +61,6 @@ streamlit run chat_ui.py
 Open:[http://localhost:8501]
 live:(https://llm-finetuning-ykwu.onrender.com)
 
-## Deploy On Render
-
-1. Push this repository to GitHub.
-2. In Render, click **New +** -> **Blueprint**.
-3. Select the repo. Render will detect `render.yaml` and create the web service.
-4. Deploy.
-
-Render uses:
-- Build command: `pip install --upgrade pip && pip install -r requirements-ui.txt`
-- Start command: `streamlit run chat_ui.py --server.address 0.0.0.0 --server.port $PORT --server.headless true`
-
-Important:
-- Keep at least one `.pth` checkpoint in the project root (or update the app to download/load one), otherwise the UI will start but cannot run inference.
-
 ## Credits
 
 Designed and developed by Anurag Singh  
